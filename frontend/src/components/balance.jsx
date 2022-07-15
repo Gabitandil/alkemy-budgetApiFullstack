@@ -2,10 +2,7 @@ import React from 'react'
 import axiosClient from '../axios/axios';
 function Balance({transactions}) {
 
-    // async function test(){
-    //     let prueba = await axiosClient.get()
-    //     console.log('a', prueba.data)
-    //   }
+  
 
 
   return (
