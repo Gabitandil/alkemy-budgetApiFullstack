@@ -1,16 +1,28 @@
-
+import { useEffect, useState } from 'react';
 import './App.css';
 import axiosClient from './axios/axios';
+import Balance from './components/balance'
+
+
 function App() {
-  async function test(){
-  let prueba = await axiosClient.get()
-  console.log('a', prueba.data)
-}
+  const [transactions , setTransactions] = useState([])
+  let response 
+  useEffect( () => {
+   
+    
+      axiosClient.get().then(res => {
+       
+        setTransactions(res.data)
+      })
+     
+  
+    
+  }, [])
+  
+
   return (
     <div className="App">
-     <h1>budget api </h1>
-      <p>hola</p>
-      <button onClick= {test}>prueba</button>
+     <Balance transactions = {transactions} />
     </div>
   );
 }
