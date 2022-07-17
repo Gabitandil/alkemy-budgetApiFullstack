@@ -1,7 +1,9 @@
 import { useEffect, useState } from 'react';
-import './App.css';
+import './style/layout/app.scss'
 import axiosClient from './axios/axios';
 import Balance from './components/balance'
+import CreateTransaction from './components/createTransaction';
+import Transactions from './components/transactions';
 
 
 function App() {
@@ -23,6 +25,8 @@ function App() {
   return (
     <div className="App">
      <Balance transactions = {transactions} />
+     <Transactions transactions={transactions}/>
+     <CreateTransaction transactions = {transactions} />
     </div>
   );
 }

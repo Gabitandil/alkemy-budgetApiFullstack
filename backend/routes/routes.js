@@ -3,6 +3,7 @@ const router = Router()
 const db = require('../models/Transactions')
 const Transactions = db.transactions
  const {Transaction } = require('../config/db')
+
  
  router.post('/', async (req, res) => {
     let {
@@ -21,7 +22,23 @@ const Transactions = db.transactions
         date: date,
         type_transaction: type_transaction
     })
-    res.send(createTransaction)
+    if (createTransaction.type_transaction == "expense"){
+        
+        let expenseTransaction = await Transaction.update({ amount:-Math.abs(amount)}, {where: {id: createTransaction.id}})
+            
+        
+       
+        
+        
+        res.send(expenseTransaction)
+
+        
+        
+        
+        
+    } else {
+        res.send(createTransaction)
+    }
  } catch (error) {
     console.log(error.message)
  }

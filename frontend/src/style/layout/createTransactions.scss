@@ -1,0 +1,47 @@
+.createContainer{
+    position: relative;
+    top: 110px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: auto;
+    
+}
+.formContainer{
+    
+    padding: 20px;
+   
+    
+    width: 250px;
+    
+}
+
+.formContainer > input{
+    
+    width: 255px;
+    height: 30px;
+    margin :5px
+}
+.formContainer > select{
+   
+   height: 35px;
+   
+}
+
+.formContainer > option{
+    background-color: red;
+    width: 244px;
+    height: 30px;
+}
+.createButton{
+    background-color: purple;
+    color: white;
+    padding: 5px;
+    border-radius: 5px;
+    border-color: purple;
+    font-size: 20px;
+    &:hover{
+        cursor: pointer;
+        filter: brightness(0.7);
+    }
+}

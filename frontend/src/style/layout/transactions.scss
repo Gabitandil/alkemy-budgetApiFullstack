@@ -1,0 +1,70 @@
+.transactionsContainer{
+    display: inline-block;
+    width: 600px;
+    font-size: 1.2rem;
+    
+}
+
+li {
+    list-style-type: none;
+    position: relative;
+    
+    background-color: white;
+    
+    margin:0 0 10px 0;   
+    border-radius: 0.1px;
+    
+    
+}
+    
+
+
+.incomes{
+    height: 40px;
+   
+  
+}
+
+.income{
+    
+    color: green;
+}
+
+.expense{
+    color: red;
+}
+
+.deleteButton{
+    
+    position: absolute;
+    background-color: red;
+    border-color: red;
+    color: white;
+    left: 540px;
+    border-radius: 5px;
+    padding: 11px;
+   
+    &:hover{
+        cursor: pointer;
+        filter: brightness(0.8);
+    }
+}
+
+.editButton{
+    position: absolute;
+    right: 528px;
+    padding: 11px;
+    background-color: orange;
+    border-color: orange;
+    color: white;
+   
+    border-radius: 5px;
+    &:hover{
+        cursor: pointer;
+        filter: brightness(0.8);
+    }
+}
+
+.income li:nth-child(1) {
+    background: #99c;
+  }
