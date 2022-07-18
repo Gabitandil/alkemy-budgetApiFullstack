@@ -13,7 +13,7 @@ function Balance({ transactions }) {
     <div>
       <h1 className='title'>BUGDET API  </h1>
       <h2>Your Balance is  </h2>
-       {total? <h1>{`$${total}`}</h1> : <h1>$0</h1>}
+       {total? <h1 className={total < 0 ? "expense" : null}>{`$${total}`}</h1> : <h1>$0</h1>}
        
 
       

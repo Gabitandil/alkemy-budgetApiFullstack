@@ -66,12 +66,19 @@ router.put('/change/:id', async (req, res) => {
         const {id } = req.params
         let {concept, amount} = req.body
         
-         await Transaction.update({concept, amount},
+       let createTransaction =   await Transaction.update({concept, amount},
+        
              {
+            silent: true,
             where : {
                 id
             }
         } )
+        // if (createTransaction.type_transaction == "expense"){
+        
+        //     let expenseTransaction = await Transaction.update({ amount:-Math.abs(amount)}, {where: {id: createTransaction.id}})
+        //     console.log('hola')
+        // }
         res.status(200).send("transaction succesfully updated")
     } catch (error) {
 
