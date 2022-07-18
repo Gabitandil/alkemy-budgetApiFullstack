@@ -6,7 +6,7 @@ import { toast, ToastContainer } from 'react-toastify'
 import 'react-toastify/dist/ReactToastify.css';
 import { useState } from 'react'
 import Modal from 'react-modal'
-
+import '../style/layout/modal.scss'
 
 function Transactions({ transactions }) {
     Modal.setAppElement('#root');
@@ -41,13 +41,13 @@ function Transactions({ transactions }) {
  
     const customStyles = {
         content: {
-          top: '50%',
+          top: '35%',
           left: '50%',
           right: 'auto',
           bottom: 'auto',
           marginRight: '-50%',
           transform: 'translate(-50%, -50%)',
-          height: "50%",
+          height: "20%",
           width: "50%",
           padding: "0"
         },
@@ -103,14 +103,14 @@ function Transactions({ transactions }) {
             
             <button className='editButton' onClick={()=> {setModalData(el); setOpenModal(true);  } }>edit</button>
             <Modal isOpen={openModal}   style={customStyles}>
-                <div>
+                <div className='modal-container' >
                 <button className='closeModal' onClick={() => closeModal()}>x</button>
                 
-                
+                <div className='modal'>
                     <input onChange={(e) =>handleEditInput(e)} value={updateTransaction.concept} type="text"  name='concept' placeholder={modalData? modalData.concept : null}  />
                     <input onChange={(e)=> handleEditInput(e)} value={updateTransaction.amount} type="text" name='amount'  placeholder={modalData? modalData.amount : null} />
-                    <button onClick={() => editTransaction(updateTransaction, modalData.id)  }>finish edit</button>
-                    
+                    <button onClick={() => editTransaction(updateTransaction, modalData.id)  }>edit transaction</button>
+                    </div>
                     
                 
                 </div>
