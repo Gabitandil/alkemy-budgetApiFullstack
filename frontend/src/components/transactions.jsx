@@ -67,10 +67,14 @@ function Transactions({ transactions }) {
           
           updateTransaction.amount =  updateTransaction.amount*-1
         }
+        if(!updateTransaction.amount){
+          toast.warning("amount is empty");
+          e.preventDefault()
+        }
         if(isNaN(updateTransaction.amount)){
           
           toast.warning("amount must be a number");
-          return false 
+          e.preventDefault()
         } 
          else{
           axiosClient.put(`/change/${id}`, {
