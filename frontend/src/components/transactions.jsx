@@ -21,10 +21,12 @@ function Transactions({ transactions }) {
 
     function deleteTransaction(id){
         axiosClient.delete(`delete/${id}`)
-        toast.success('Transaction deleted succesfully')
+        toast.success('Transaction deleted succesfully', {
+          position: "top-center"
+        })
         setTimeout(() => {
             window.location.reload();
-        }, 800);
+        }, 2000);
 
 
     }
@@ -60,20 +62,25 @@ function Transactions({ transactions }) {
       
       function editTransaction(updateTransaction, id,e){
         if(!updateTransaction.concept) {
-          toast.warning('concept is empty')
-          e.preventDefault()
-        }
-        if(modalData.amount <0){
-          
-          updateTransaction.amount =  updateTransaction.amount*-1
+         
+          updateTransaction.concept = modalData.concept
+         
         }
         if(!updateTransaction.amount){
-          toast.warning("amount is empty");
-          e.preventDefault()
+         updateTransaction.amount = modalData.amount
+          
+        }
+        if(modalData.type_transaction == "expense"){
+          
+          let expenseTransaction = -Math.abs(updateTransaction.amount)
+          updateTransaction.amount = expenseTransaction
+          
         }
         if(isNaN(updateTransaction.amount)){
           
-          toast.warning("amount must be a number");
+          toast.warning("amount must be a number", {
+            position: "top-center"
+          });
           e.preventDefault()
         } 
          else{
@@ -81,7 +88,9 @@ function Transactions({ transactions }) {
             concept: updateTransaction.concept,
             amount: updateTransaction.amount
           })
-          toast.success('Transaction updated')
+          toast.success('Transaction updated', {
+            position: "top-center"
+          })
           setTimeout(() => {
             window.location.reload();
         }, 2000);
@@ -109,6 +118,7 @@ function Transactions({ transactions }) {
                 <div className='modal'>
                     <input onChange={(e) =>handleEditInput(e)} value={updateTransaction.concept} type="text"  name='concept' placeholder={modalData? modalData.concept : null}  />
                     <input onChange={(e)=> handleEditInput(e)} value={updateTransaction.amount} type="text" name='amount'  placeholder={modalData? modalData.amount : null} />
+                    <input type="date" />
                     <button onClick={() => editTransaction(updateTransaction, modalData.id)  }>edit transaction</button>
                     </div>
                     

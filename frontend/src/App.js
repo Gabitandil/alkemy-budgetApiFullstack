@@ -6,21 +6,22 @@ import CreateTransaction from './components/createTransaction';
 import Transactions from './components/transactions';
 
 
+
 function App() {
   
   const [transactions , setTransactions] = useState([])
-  let response 
+  let response = axiosClient.get()
   useEffect( () => {
    
     
-      axiosClient.get().then(res => {
+     axiosClient.get().then(res => {
        
         setTransactions(res.data)
       })
      
-  
+      console.log('useffect')
     
-  }, [])
+  }, [] )
   
 
   return (
