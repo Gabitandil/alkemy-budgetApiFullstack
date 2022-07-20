@@ -16,7 +16,8 @@ function Transactions({ transactions }) {
   const [updateTransaction, setUpdateTransaction] = useState({
     
     concept:   "",
-    amount :  ""
+    amount :  "",
+    date: "",
   })
 
     function deleteTransaction(id){
@@ -24,9 +25,7 @@ function Transactions({ transactions }) {
         toast.success('Transaction deleted succesfully', {
           position: "top-center"
         })
-        setTimeout(() => {
-            window.location.reload();
-        }, 2000);
+     
 
 
     }
@@ -61,6 +60,9 @@ function Transactions({ transactions }) {
       }
       
       function editTransaction(updateTransaction, id,e){
+        if(!updateTransaction.date){
+          updateTransaction.date = modalData.date
+        }
         if(!updateTransaction.concept) {
          
           updateTransaction.concept = modalData.concept
@@ -86,14 +88,18 @@ function Transactions({ transactions }) {
          else{
           axiosClient.put(`/change/${id}`, {
             concept: updateTransaction.concept,
-            amount: updateTransaction.amount
+            amount: updateTransaction.amount,
+            date: updateTransaction.date
+
+          })
+          setUpdateTransaction({
+            concept: "",
+            amount: ""
           })
           toast.success('Transaction updated', {
             position: "top-center"
           })
-          setTimeout(() => {
-            window.location.reload();
-        }, 2000);
+          
         }
 
         
@@ -101,7 +107,7 @@ function Transactions({ transactions }) {
        
       }
      
-      
+      console.log(updateTransaction)
   return (
     <div className='transactionsContainer'>
         {transactions.length > 0 ? transactions.map(el => {
@@ -110,7 +116,7 @@ function Transactions({ transactions }) {
             <li className='incomes' key={el.id} >{el.concept} {el.date}  <span className={el.amount > 0 ? "income" : "expense"}> {`$${el.amount}` } </span>
            
             
-            <button className='editButton' onClick={()=> {setModalData(el); setOpenModal(true);  } }>edit</button>
+           
             <Modal isOpen={openModal}   style={customStyles}>
                 <div className='modal-container' >
                 <button className='closeModal' onClick={() => closeModal()}>x</button>
@@ -118,15 +124,17 @@ function Transactions({ transactions }) {
                 <div className='modal'>
                     <input onChange={(e) =>handleEditInput(e)} value={updateTransaction.concept} type="text"  name='concept' placeholder={modalData? modalData.concept : null}  />
                     <input onChange={(e)=> handleEditInput(e)} value={updateTransaction.amount} type="text" name='amount'  placeholder={modalData? modalData.amount : null} />
-                    <input type="date" />
-                    <button onClick={() => editTransaction(updateTransaction, modalData.id)  }>edit transaction</button>
+                    <input  onChange={(e)=> handleEditInput(e)} name="date" type="text" onFocus={(e) => (e.target.type = "date")} onBlur = {(e) => (e.target.type = "text")} placeholder={modalData? modalData.date : null} />
+                    <button onClick={() => {editTransaction(updateTransaction, modalData.id); closeModal()}  }>edit transaction</button>
                     </div>
                     
                 
                 </div>
                 </Modal>
-            
+                <div className='buttonContainer'>
+                <button className='editButton' onClick={()=> {setModalData(el); setOpenModal(true);  } }>edit</button>
             <button onClick={() => deleteTransaction(el.id)} className='deleteButton'>x</button>
+            </div>
             </li>
             </ul>
            

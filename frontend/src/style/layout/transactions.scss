@@ -1,7 +1,24 @@
+@use '../base/variables' as v;
+@use '../base/mixins.scss' as m;
+
 .transactionsContainer{
-    display: inline-block;
-    width: 600px;
-    font-size: 1.2rem;
+    @include m.telefono{
+        
+        width: 350px;
+        justify-content: center;
+        align-items: center;
+
+    }
+    @include m.tablet{
+       
+    }
+    @include m.desktop{
+       
+        display: inline-block;
+        width: 600px;
+        font-size: 1.2rem;
+    }
+   
     
 }
 
@@ -35,35 +52,50 @@ li {
 }
 
 .deleteButton{
-    
-    position: absolute;
-    background-color: red;
-    border-color: red;
-    color: white;
-    left: 540px;
-    border-radius: 5px;
-    padding: 11px;
-   
-    &:hover{
-        cursor: pointer;
-        color: red;
-        background-color: white;
+    @include m.telefono{
+        background-color: red;
+        border-color: red;
+        color: white;
+        border-radius: 5px;
+        padding: 7px;
+        &:hover{
+            cursor: pointer;
+            color: red;
+            background-color: white;
+        }
     }
+    @include m.desktop{
+        
+        padding: 11px;
+    }
+   
+    
+   
+   
+  
 }
 
 .editButton{
-    position: absolute;
-    right: 528px;
-    padding: 11px;
-    background-color: orange;
-    border-color: orange;
-    color: white;
-   
-    border-radius: 5px;
-    &:hover{
-        cursor: pointer;
-        filter: brightness(0.8);
+    @include m.telefono{
+        background-color: orange;
+        border-color: orange;
+        color: white;
+        padding: 7px;
+        border-radius: 5px;
+        &:hover{
+            cursor: pointer;
+            filter: brightness(0.8);
+        }
     }
+
+   @include m.desktop{
+    padding: 11px;
+   
+   
+    
+ 
+   }
+ 
 }
 
 .income li:nth-child(1) {
@@ -85,4 +117,34 @@ li {
         background-color: white;
         color: red;
     }
+}
+
+
+.buttonContainer{
+ @include m.telefono{
+    position: absolute;
+    top: 2px;
+    display: block;
+    button ~ button {
+        margin-left: 245px;
+    }
+ }
+ @include m.desktop{
+    
+    button ~ button {
+        margin-left: 480px;
+    }
+ }
+    @include m.desktopxxl{
+        button ~ button {
+            margin-left: 480px;
+        }
+    
+        
+       
+        
+        
+    }
+  
+
 }

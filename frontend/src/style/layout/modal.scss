@@ -1,15 +1,40 @@
+@use '../base/variables' as v;
+@use '../base/mixins.scss' as m;
 .modal-container{
-    background-color:  	 	rgb(220,220,220);
-    height: 100%;
+   
+    @include m.telefono{
+        margin: 0;
+        height: 100%;
+        width: 100%;
+        justify-content: center;
+        align-items: center;
+        overflow-x:hidden;
+        content : {
+            top: 100%;
+        }
+      
+    }
+    @include m.desktop{
+        background-color:  	 	rgb(220,220,220);
+        height: 100%;
+    }
 }
 .modal {
-    display: flex;
-    flex-direction: row;
-    gap: 80px;
-    position: relative;
-    top: 20%;
+    @include m.telefono{
+        display: flex;
+        flex-direction: column;
+        
+    }
+    @include m.desktopxxl{
+        display: flex;
+        flex-direction: row;
+        gap: 55px;
+        position: relative;
+        top: 20%;
+        
+        justify-content: center;
+    }
     
-    justify-content: center;
 }
 
 .modal > input{

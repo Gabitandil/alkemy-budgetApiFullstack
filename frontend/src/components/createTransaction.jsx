@@ -4,7 +4,7 @@ import { useState } from 'react'
 import axiosClient from '../axios/axios'
 import { toast } from 'react-toastify'
 import '../style/layout/createTransactions.scss'
-function CreateTransaction({transactions}) {
+function CreateTransaction({transactions, transactions2} ) {
  const [input, setInput] = useState({
   concept: "",
   amount: "", 
@@ -49,10 +49,11 @@ function CreateTransaction({transactions}) {
       type_transaction: input.type_transaction,
       date: input.date
     })
-    toast.success('transaction created')
-    setTimeout(() => {
-      window.location.reload();
-    }, 2000);
+    transactions2 = 1
+    toast.success('transaction created',{
+      position: "top-center"
+    })
+   
   }
 
   
