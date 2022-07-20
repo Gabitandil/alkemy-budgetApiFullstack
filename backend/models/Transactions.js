@@ -19,6 +19,9 @@ module.exports = (sequelize) => {
         type_transaction:{
             type: DataTypes.STRING
         },
+        category:{
+            type: DataTypes.STRING
+        }
        
        
     })

@@ -11,6 +11,7 @@ const Transactions = db.transactions
         amount,
         date,
         type_transaction,  
+        category
     } = req.body
 
 
@@ -20,7 +21,8 @@ const Transactions = db.transactions
         concept: concept,
         amount: amount,
         date: date,
-        type_transaction: type_transaction
+        type_transaction: type_transaction,
+        category : category
     })
     if (createTransaction.type_transaction == "expense"){
         
