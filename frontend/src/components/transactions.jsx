@@ -2,13 +2,13 @@ import React from 'react'
 
 import '../style/layout/transactions.scss'
 import axiosClient from '../axios/axios'
-import { toast, ToastContainer } from 'react-toastify'
-import 'react-toastify/dist/ReactToastify.css';
+import { toast } from 'react-toastify'
+
 import { useState } from 'react'
 import Modal from 'react-modal'
 import '../style/layout/modal.scss'
 
-function Transactions({ transactions }) {
+function Transactions({ transactions, data }) {
     Modal.setAppElement('#root');
  const [openModal, setOpenModal] = useState(false);
  const [modalData, setModalData] = useState(null);
@@ -107,13 +107,13 @@ function Transactions({ transactions }) {
        
       }
      
-      console.log(updateTransaction)
+     
   return (
     <div className='transactionsContainer'>
-        {transactions.length > 0 ? transactions.map(el => {
+        {data.length > 0 ? data.map(el => {
         return <div  key={el.id}>
             <ul>
-            <li className='incomes' key={el.id} >{el.concept} {el.date}  <span className={el.amount > 0 ? "income" : "expense"}> {`$${el.amount}` } </span>
+            <li className='incomes' key={el.id} > <span className='category'>{`[${el.category}]`} </span> {el.concept} {el.date}  <span className={el.amount > 0 ? "income" : "expense"}> {`$${el.amount}` } </span>
            
             
            
@@ -133,13 +133,13 @@ function Transactions({ transactions }) {
                 </Modal>
                 <div className='buttonContainer'>
                 <button className='editButton' onClick={()=> {setModalData(el); setOpenModal(true);  } }>edit</button>
-            <button onClick={() => deleteTransaction(el.id)} className='deleteButton'>x</button>
+            <button onClick={() => {deleteTransaction(el.id); toast.clearWaitingQueue()}} className='deleteButton'>x</button>
             </div>
             </li>
             </ul>
            
 
-            <ToastContainer/>
+            
         </div>
       }) : <p>there are no transactions yet :( </p>}
            

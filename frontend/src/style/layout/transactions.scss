@@ -7,7 +7,7 @@
         width: 350px;
         justify-content: center;
         align-items: center;
-
+        font-size: 0.75rem;
     }
     @include m.tablet{
        
@@ -126,7 +126,7 @@ li {
     top: 2px;
     display: block;
     button ~ button {
-        margin-left: 245px;
+        margin-left: 247px;
     }
  }
  @include m.desktop{
@@ -134,12 +134,14 @@ li {
     button ~ button {
         margin-left: 480px;
     }
+    top: -1px;
  }
     @include m.desktopxxl{
         button ~ button {
             margin-left: 480px;
         }
-    
+
+        
         
        
         
@@ -147,4 +149,8 @@ li {
     }
   
 
+}
+
+.category{
+    color: brown;
 }

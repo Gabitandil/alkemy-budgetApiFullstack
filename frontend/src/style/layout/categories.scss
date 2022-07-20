@@ -1,0 +1,58 @@
+@use '../base/variables' as v;
+@use '../base/mixins.scss' as m;
+
+.categoriesContainer{
+    @include m.telefono{
+      
+        
+        
+        position: relative;
+        bottom: 260px;
+        
+        align-items: center;
+        justify-content: center;
+    }
+
+   
+    
+    
+}
+
+.opt-container{
+    background-color: rgb(220,220,220);
+}
+
+
+.opt-container > a{
+    @include m.telefono{
+        background-color: #4484ce;
+        margin-left: 30px;
+        color: white;
+        border: solid;
+        border-color: #4484ce;
+        border-radius: 5px;
+        padding: 5px;
+    }
+ @include m.desktop{
+    
+    
+    
+    
+    
+    padding: 11px;
+    font-size: 20px;
+    
+    
+    &:hover{
+        cursor: pointer;
+        filter: brightness(0.6);
+    }
+ }
+   
+}
+.probando{
+    background-color: green;
+    color: green;
+}
+
+

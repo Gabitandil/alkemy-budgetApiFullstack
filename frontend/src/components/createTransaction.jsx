@@ -9,9 +9,16 @@ function CreateTransaction({transactions, transactions2} ) {
   concept: "",
   amount: "", 
   type_transaction: "",
-  date: ""
+  date: "",
+  category : ""
  })
+
  function transactionCreate(input,e){
+  if(input.concept.length > 10 ){
+    toast.warn('input cant be longer than 8 characters')
+    
+    e.preventDefault()
+  }
   if(!input.concept){
     toast.warn('concept is empty',{
       position: "top-center"
@@ -30,16 +37,22 @@ function CreateTransaction({transactions, transactions2} ) {
     })
     e.preventDefault()
   }
+  if(!input.date){
+    toast.warn('you must put a date', {
+      position: "top-center"
+    })
+    e.preventDefault()
+}
   if(!input.type_transaction){
     toast.warn('you must choose a transaction type', {
       position: "top-center"
     })
     e.preventDefault()
   }
-  if(!input.date){
-    toast.warn('you must put a date', {
-      position: "top-center"
-    })
+  if(!input.category){
+    toast.warn("you must select a category",{
+      position:"top-center"   
+    }) 
     e.preventDefault()
   }
   else{
@@ -47,9 +60,11 @@ function CreateTransaction({transactions, transactions2} ) {
       concept: input.concept,
       amount : input.amount,
       type_transaction: input.type_transaction,
-      date: input.date
+      date: input.date,
+      category: input.category
     })
-    transactions2 = 1
+    
+    
     toast.success('transaction created',{
       position: "top-center"
     })
@@ -76,7 +91,6 @@ function CreateTransaction({transactions, transactions2} ) {
   })
  }
 
-
   return (
     <div className='createContainer'>
 
@@ -90,8 +104,15 @@ function CreateTransaction({transactions, transactions2} ) {
                 <option value="income">income</option>
                 <option value="expense">expense</option>
             </select>
+            <select onChange={(e) => handleSelect(e)} name="category" >
+              <option value="">category</option>
+              <option value="food">food</option>
+              <option value="taxes">taxes</option>
+              <option value="fun">fun</option>
+              <option value="other">other</option>
+            </select>
         </form>
-        <button  onClick={() => transactionCreate(input)} className='createButton'>create transaction</button>
+        <button  onClick={(e) => {transactionCreate(input, e); toast.clearWaitingQueue();}} className='createButton'>create transaction</button>
     
     </div>
   )
