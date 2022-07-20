@@ -5,7 +5,7 @@ const Transactions = db.transactions
  const {Transaction } = require('../config/db')
 
  
- router.post('/', async (req, res) => {
+ router.post('/create', async (req, res) => {
     let {
         concept,
         amount,
@@ -64,9 +64,9 @@ router.get('/', async (req,res) => {
 router.put('/change/:id', async (req, res) => {
     try {
         const {id } = req.params
-        let {concept, amount} = req.body
+        let {concept, amount, date} = req.body
         
-       let createTransaction =   await Transaction.update({concept, amount},
+       let createTransaction =   await Transaction.update({concept, amount, date},
         
              {
             silent: true,
