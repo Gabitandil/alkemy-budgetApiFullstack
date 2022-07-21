@@ -1,7 +1,7 @@
 const {Router} = require('express')
 const router = Router()
-const db = require('../models/Transactions')
-const Transactions = db.transactions
+
+
  const {Transaction } = require('../config/db')
 
  

@@ -1,7 +1,7 @@
 const express = require('express');
 const cors = require('cors')
 const app = express()
-
+const apiRouter = require('./api')
 //Config DB
 require('./config/db')
 
@@ -14,8 +14,8 @@ app.use(express.urlencoded({
   extended: true
 }));
 
-//Routes
-app.use(require('./routes/routes'))
+//Route
+app.use('/', apiRouter)
 
 
 app.listen(3001, console.log('Listening server on port 3001'))

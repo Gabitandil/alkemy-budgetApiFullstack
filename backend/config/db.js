@@ -7,8 +7,10 @@ const sequelize = new Sequelize(`postgres://${process.env.DB_USER}:${process.env
 
 
 const TransactionModel = require('../models/Transactions')
+const UserModel = require('../models/Users')
 
 const Transaction = TransactionModel(sequelize, Sequelize);
+const User = UserModel(sequelize, Sequelize)
 
 sequelize.sync({force:false}).then(()=> {
   console.log('tables sync' )
@@ -18,7 +20,7 @@ sequelize.sync({force:false}).then(()=> {
 module.exports = {
 
   Transaction,
-  
+  User
   
 }
 
