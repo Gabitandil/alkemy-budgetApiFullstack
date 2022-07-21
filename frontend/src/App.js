@@ -1,4 +1,4 @@
-import { useEffect, useState, useMemo } from 'react';
+import { useEffect, useState, useMemo, useCallback } from 'react';
 import { toast, ToastContainer } from 'react-toastify'
 import 'react-toastify/dist/ReactToastify.css';
 import './style/layout/app.scss'
@@ -13,31 +13,47 @@ function App() {
 
   const [transactions , setTransactions] = useState([])
   const [data , setData] = useState([])
-   let container = transactions.concept
-   function getValues(){
-    let jsonData = axiosClient.get().then(res => {
+  const [trackState, setTrackState] = useState(0)
+
+
+
+
+    
+  function getValues(){
+    axiosClient.get().then(res => {
         
       setTransactions( res.data)
       setData(res.data)
+      setTrackState(trackState)
     })
   }
-  let test 
+  
+ 
+
+
+ 
+
   useEffect( () => {
-   getValues()
-    console.log('useffect')
+    setTimeout(() => {
+      getValues()
+      
+    }, 500);
+    
+   
+   console.log('useeffect')
      
-   }, [] )
+   }, [trackState])
 
    
  
-  
+  console.log(trackState)
 
   return (
     <div className="App">
-      <ToastContainer limit={1} autoClose={1000}/>
+      <ToastContainer limit={1} autoClose={2000}/>
      <Balance transactions = {transactions}   />
-     <Transactions transactions={transactions} data = {data}/>
-     <CreateTransaction transactions = {transactions} />
+     <Transactions transactions={transactions} data = {data}  trackState= {trackState} setTrackState={setTrackState}/>
+     <CreateTransaction transactions = {transactions}  trackState= {trackState} setTrackState={setTrackState}/>
      <Categories transactions = {transactions} setData = {setData}/>
     </div>
   );

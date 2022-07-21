@@ -8,7 +8,7 @@ import { useState } from 'react'
 import Modal from 'react-modal'
 import '../style/layout/modal.scss'
 
-function Transactions({ transactions, data }) {
+function Transactions({ transactions, data , trackState, setTrackState }) {
     Modal.setAppElement('#root');
  const [openModal, setOpenModal] = useState(false);
  const [modalData, setModalData] = useState(null);
@@ -22,9 +22,11 @@ function Transactions({ transactions, data }) {
 
     function deleteTransaction(id){
         axiosClient.delete(`delete/${id}`)
+        setTrackState(trackState => trackState+ 1)
         toast.success('Transaction deleted succesfully', {
           position: "top-center"
         })
+        
      
 
 
@@ -92,6 +94,7 @@ function Transactions({ transactions, data }) {
             date: updateTransaction.date
 
           })
+          
           setUpdateTransaction({
             concept: "",
             amount: ""
@@ -99,6 +102,7 @@ function Transactions({ transactions, data }) {
           toast.success('Transaction updated', {
             position: "top-center"
           })
+          setTrackState(trackState+1)
           
         }
 
@@ -125,7 +129,7 @@ function Transactions({ transactions, data }) {
                     <input onChange={(e) =>handleEditInput(e)} value={updateTransaction.concept} type="text"  name='concept' placeholder={modalData? modalData.concept : null}  />
                     <input onChange={(e)=> handleEditInput(e)} value={updateTransaction.amount} type="text" name='amount'  placeholder={modalData? modalData.amount : null} />
                     <input  onChange={(e)=> handleEditInput(e)} name="date" type="text" onFocus={(e) => (e.target.type = "date")} onBlur = {(e) => (e.target.type = "text")} placeholder={modalData? modalData.date : null} />
-                    <button onClick={() => {editTransaction(updateTransaction, modalData.id); closeModal()}  }>edit transaction</button>
+                    <button onClick={() => {editTransaction(updateTransaction, modalData.id); closeModal();  toast.clearWaitingQueue();}  }>edit transaction</button>
                     </div>
                     
                 

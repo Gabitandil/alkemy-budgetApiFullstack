@@ -1,6 +1,28 @@
 @use '../base/variables' as v;
 @use '../base/mixins.scss' as m;
 
+.selected {
+    @include m.telefono{
+      
+        background-color: #4484ce;
+        margin-left: 30px;
+        color: white;
+        border: solid;
+        border-color: #4484ce;
+        border-radius: 5px;
+        padding: 5px;
+        filter: brightness(0.5);
+        &:hover{
+            cursor: pointer;
+        }
+    }
+ @include m.desktop{
+    padding: 11px;
+    font-size: 20px;
+ }
+}
+
+
 .categoriesContainer{
     @include m.telefono{
       
@@ -50,9 +72,4 @@
  }
    
 }
-.probando{
-    background-color: green;
-    color: green;
-}
-
 
