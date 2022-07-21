@@ -32,14 +32,14 @@ const Transactions = db.transactions
        
         
         
-        res.send(expenseTransaction)
+      return  res.send(expenseTransaction)
 
         
         
         
         
     } else {
-        res.send(createTransaction)
+      return  res.send(createTransaction)
     }
  } catch (error) {
     console.log(error.message)
