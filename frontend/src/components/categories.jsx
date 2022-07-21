@@ -5,6 +5,24 @@ function Categories({transactions, setData}) {
 
  const [category, setCategory] =   useState("")
  const [selected, setSelected] = useState(0)
+
+ function filterByTransactionType(opt){
+  const backup = transactions
+  if(category === opt){
+    setData(backup)
+    setCategory("")
+    setSelected("")
+  }
+  else{
+    let filterByTransactionType = backup.filter(element => element.type_transaction.includes(opt))
+    console.log('filtro', filterByTransactionType )
+    setData(filterByTransactionType)
+    setCategory(opt)
+    setSelected(opt)
+  }
+
+ }
+
  function filterCategory(opt){
     const backup = transactions
     if(category === opt){
@@ -31,11 +49,14 @@ function Categories({transactions, setData}) {
     <li className='opt-container' >
         
        
-         <span className={selected === "food" ? "selected" : "opt-container"} > <a  onClick={() => filterCategory("food")} >food</a> </span> 
-         <span className={selected === "taxes" ? "selected" : "opt-container"}> <a onClick={() =>filterCategory("taxes")}> taxes</a></span>
-          <span className={selected === "fun" ? "selected" : "opt-container"}> <a onClick={() => filterCategory("fun")}>fun</a> </span>
-           <span className={selected ==="other" ? "selected" : "opt-container"}><a onClick={() => filterCategory("other")}>others</a>   </span> 
-         
+         <span onClick={() => filterCategory("food")} className={selected === "food" ? "selected" : "opt-container"} > <a   >food</a> </span> 
+         <span onClick={() =>filterCategory("taxes")}className={selected === "taxes" ? "selected" : "opt-container"}> <a > taxes</a></span>
+          <span  onClick={() => filterCategory("fun")}className={selected === "fun" ? "selected" : "opt-container"}> <a >fun</a> </span>
+           <span onClick={() => filterCategory("other")} className={selected ==="other" ? "selected" : "opt-container"}><a >others</a>   </span>
+           <div className='tp-container' >
+           <span onClick={() => filterByTransactionType("income")} className={selected === "income"? "income-selected" : "income-option"}> <a >incomes</a>  </span>
+           <span  onClick={() => filterByTransactionType("expense")} className={selected ==="expense"? "expense-selected": "expense-option"} ><a  >expenses</a></span>
+           </div>
          </li>
     </div>
   )
