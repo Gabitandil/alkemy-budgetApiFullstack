@@ -46,7 +46,7 @@ function App() {
 
    
  
-  console.log(trackState)
+
 
   return (
     <div className="App">

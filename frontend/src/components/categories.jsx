@@ -15,7 +15,7 @@ function Categories({transactions, setData}) {
   }
   else{
     let filterByTransactionType = backup.filter(element => element.type_transaction.includes(opt))
-    console.log('filtro', filterByTransactionType )
+   
     setData(filterByTransactionType)
     setCategory(opt)
     setSelected(opt)
