@@ -4,7 +4,7 @@
 <h2>
 Desarrollar una aplicación para administración de presupuesto personal. La misma debe
 permitir crear eliminar y editar ingresos y egresos de dinero, y mostrar un balance resultante de las
-operaciones registradas, ademas de filtrarlos por tipo y categoria.
+operaciones registradas.
 </h2>
 
 
