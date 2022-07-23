@@ -57,7 +57,8 @@ egreso) una vez creada.
 ![transactions 1](https://user-images.githubusercontent.com/70545509/180583378-e61a2288-dc27-45bb-a43c-a9efb5984206.png)
 ![editTransaction](https://user-images.githubusercontent.com/70545509/180583997-bdfc19f7-1707-4446-bff0-f9b2e076598d.png)
 ![filterTransactions](https://user-images.githubusercontent.com/70545509/180584133-8eccbce4-b144-44bb-b9f5-9357f9bf62b6.png)
-![deletedTransactions](https://user-images.githubusercontent.com/70545509/180584031-a408e607-dd90-460f-8269-ef89865948a9.png)
+![deletedTransactions](https://user-images.githubusercontent.com/70545509/180584601-50b26f87-893a-4cec-a25e-ad34dd076956.png)
+
 
 
 
