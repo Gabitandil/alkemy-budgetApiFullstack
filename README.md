@@ -97,7 +97,7 @@ de Frontend
 
 
 
-![homeResponsive](https://user-images.githubusercontent.com/70545509/180584297-61c9ee41-da77-40c7-a19e-d42e6402b473.png)
-![transactionsResponsive](https://user-images.githubusercontent.com/70545509/180584298-89c6f867-ca2a-483e-8417-cd8ac946e641.png)
+![homeResponsive](https://user-images.githubusercontent.com/70545509/180584297-61c9ee41-da77-40c7-a19e-d42e6402b473.png)![transactionsResponsive](https://user-images.githubusercontent.com/70545509/180584298-89c6f867-ca2a-483e-8417-cd8ac946e641.png)
+
 
 
