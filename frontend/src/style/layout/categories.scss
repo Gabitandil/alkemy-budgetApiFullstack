@@ -2,8 +2,8 @@
 @use '../base/mixins.scss' as m;
 
 .selected {
-    @include m.telefono{
-      
+    @include m.telefono {
+
         background-color: #4484ce;
         margin-left: 30px;
         color: white;
@@ -12,41 +12,32 @@
         border-radius: 5px;
         padding: 5px;
         filter: brightness(0.5);
-        &:hover{
+        &:hover {
             cursor: pointer;
         }
     }
- @include m.desktop{
-    padding: 11px;
-    font-size: 20px;
- }
+
+    @include m.desktop {
+        padding: 11px;
+        font-size: 20px;
+    }
 }
-
-
-.categoriesContainer{
-    @include m.telefono{
-      
-        
-        
+.categoriesContainer {
+    @include m.telefono {
         position: relative;
         bottom: 30px;
-        
         align-items: center;
         justify-content: center;
     }
-
-   
-    
-    
 }
 
-.opt-container{
-    background-color: rgb(220,220,220);
+.opt-container {
+    background-color: rgb(220, 220, 220);
 }
 
 
-.opt-container > a{
-    @include m.telefono{
+.opt-container>a {
+    @include m.telefono {
         background-color: #4484ce;
         margin-left: 30px;
         color: white;
@@ -55,120 +46,101 @@
         border-radius: 5px;
         padding: 5px;
     }
- @include m.desktop{
-    
-    
-    
-    
-    
-    padding: 11px;
-    font-size: 20px;
-    
-    
-    &:hover{
-        cursor: pointer;
-        filter: brightness(0.6);
+    @include m.desktop {
+        padding: 11px;
+        font-size: 20px;
+        &:hover {
+            cursor: pointer;
+            filter: brightness(0.6);
+        }
     }
- }
-   
-}
 
-.expense-option{
-    @include m.telefono{
-        background-color: 	#800000;
-        
+}
+.expense-option {
+    @include m.telefono {
+        background-color: #800000;
+
         color: white;
         border: solid;
-        border-color: 	#800000;
+        border-color: #800000;
         border-radius: 10px;
     }
-    @include m.desktop{
-        
-    }
-    &:hover{
+    @include m.desktop {}
+
+    &:hover {
         cursor: pointer;
         filter: brightness(0.6);
     }
 }
-
-.income-option{
-    @include m.telefono{
+.income-option {
+    @include m.telefono {
         background-color: #006400;
-        
+
         color: white;
         border: solid;
         border-color: #006400;
         border-radius: 10px;
-       
-    }
 
-    @include m.desktop{
-        
     }
-    &:hover{
+    @include m.desktop {}
+
+    &:hover {
         cursor: pointer;
         filter: brightness(0.6);
     }
 }
-
 .tp-container {
-    @include m.telefono{
+    @include m.telefono {
         display: flex;
         position: relative;
         width: 80px;
         left: 270px;
         bottom: 105px;
         gap: 5px;
-        
-       flex-direction: column;
-       
-       border-radius: 20px;
+
+        flex-direction: column;
+
+        border-radius: 20px;
     }
-    @include m.tablet{
+    @include m.tablet {
         left: 270px;
         bottom: 105px;
     }
-    @include m.desktop{
+    @include m.desktop {
         left: 600px;
         bottom: 115px;
     }
-    @include m.desktopxl{
+    @include m.desktopxl {
         left: 820px;
     }
-    @include m.desktopxxl{
-        
-        width:80px;
+    @include m.desktopxxl {
+
+        width: 80px;
         left: 1170px;
         bottom: 110px;
     }
-    
-    
-    
 }
 
-.income-selected{
+.income-selected {
     background-color: #006400;
-    
+
     color: white;
     border: solid;
     border-color: #006400;
     border-radius: 10px;
-    
     filter: brightness(0.5);
-    &:hover{
+    &:hover {
         cursor: pointer;
     }
 }
-.expense-selected{
+.expense-selected {
     background-color: #800000;
-    
     color: white;
     border: solid;
     border-color: #800000;
     border-radius: 10px;
-    
     filter: brightness(0.5);
-    &:hover{
+    &:hover {
         cursor: pointer;
     }
 }

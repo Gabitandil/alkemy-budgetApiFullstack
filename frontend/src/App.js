@@ -17,11 +17,7 @@ function App() {
   const [data, setData] = useState([])
   const [trackState, setTrackState] = useState(0)
 
-
-
-
-
-   function getValues() {
+  function getValues() {
     axiosClient.get().then(res => {
 
       setTransactions(res.data)
@@ -30,40 +26,26 @@ function App() {
     })
   }
 
-
-
-
-
-
   useEffect(() => {
     setTimeout(() => {
       getValues()
-      
+
     }, 200);
 
-    
-   
-
   }, [trackState])
-
-
-
-
 
   return (
     <BrowserRouter>
       <div className="App">
 
         <ToastContainer limit={1} autoClose={2000} />
-        
+
         <Routes>
-          <Route exact path='/home' element={<><Balance transactions={transactions} /> <NavBar/> </>} />
+          <Route exact path='/home' element={<><Balance transactions={transactions} /> <NavBar /> </>} />
           <Route exact path='/transactions'
             element={<><Transactions transactions={transactions} data={data} trackState={trackState} setTrackState={setTrackState} />
               <CreateTransaction transactions={transactions} trackState={trackState} setTrackState={setTrackState} />
-              <Categories transactions={transactions} setData={setData} /> <NavBar/> </>} />
-
-
+              <Categories transactions={transactions} setData={setData} /> <NavBar /> </>} />
         </Routes>
       </div>
     </BrowserRouter>
