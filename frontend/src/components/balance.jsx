@@ -6,22 +6,25 @@ function Balance({ transactions }) {
   const getAmounts = transactions.map(transaction => transaction.amount)
     const total = getAmounts.reduce((acc, item) => (acc += item),0)
  
-  
-   
+    const limitTransactions = transactions.slice(-10)
+    console.log('total',total)
 
   return (
-    <div>
-      <h1 className='title'>BUGDET API  </h1>
-      <h2>Your Balance is  </h2>
-       {total? <h1 className={total < 0 ? "expense" : null}>{`$${total}`}</h1> : <h1>$0</h1>}
+    <div >
       
-      {transactions.length > 0? transactions.map(transaction => {
-        return <div>
-          <h2>{transaction.concept}</h2>
-        </div>
-      }) : <p>you have no transactions</p>}
+      <h1 style={{margin:0}} >Your Balance is  </h1  >
+       {total? <h1 className={total < 0 ? "expense" : "income"}>{`$${total}`}</h1> : <h1>$0</h1>}
+      
+      {limitTransactions.length > 0? limitTransactions.map(transaction => {
+        return <div  key={transaction.id}>
+          <li  className='homeTransactions'>
+          <h2 className='category'>{`{${transaction.category}}`}</h2>  <h2>{transaction.concept}</h2>  <h2 >{transaction.type_transaction}</h2>  <h2 className={transaction.amount < 0? "expense": "income"}>{`$${transaction.amount}`}</h2>
 
-      <Link to ='/transactions'><button>add your transactions</button></Link>
+          </li>
+        </div>
+      }) : <p>you have no movements go to transactions to add them</p>}
+
+      
    
     </div>
   )

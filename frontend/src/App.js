@@ -9,7 +9,7 @@ import Balance from './components/balance'
 import CreateTransaction from './components/createTransaction';
 import Transactions from './components/transactions';
 import Categories from './components/categories'
-
+import NavBar from './components/navBar'
 
 function App() {
 
@@ -21,7 +21,7 @@ function App() {
 
 
 
-  function getValues() {
+   function getValues() {
     axiosClient.get().then(res => {
 
       setTransactions(res.data)
@@ -38,11 +38,11 @@ function App() {
   useEffect(() => {
     setTimeout(() => {
       getValues()
+      
+    }, 200);
 
-    }, 500);
-
-
-    console.log('useeffect')
+    
+   
 
   }, [trackState])
 
@@ -55,13 +55,13 @@ function App() {
       <div className="App">
 
         <ToastContainer limit={1} autoClose={2000} />
-
+        
         <Routes>
-          <Route exact path='/home' element={<Balance transactions={transactions} />} />
+          <Route exact path='/home' element={<><Balance transactions={transactions} /> <NavBar/> </>} />
           <Route exact path='/transactions'
             element={<><Transactions transactions={transactions} data={data} trackState={trackState} setTrackState={setTrackState} />
               <CreateTransaction transactions={transactions} trackState={trackState} setTrackState={setTrackState} />
-              <Categories transactions={transactions} setData={setData} /></>} />
+              <Categories transactions={transactions} setData={setData} /> <NavBar/> </>} />
 
 
         </Routes>

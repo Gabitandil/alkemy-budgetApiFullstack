@@ -3,7 +3,7 @@ import React from 'react'
 import '../style/layout/transactions.scss'
 import axiosClient from '../axios/axios'
 import { toast } from 'react-toastify'
-
+import {Link} from 'react-router-dom'
 import { useState } from 'react'
 import Modal from 'react-modal'
 import '../style/layout/modal.scss'
@@ -114,6 +114,9 @@ function Transactions({ transactions, data , trackState, setTrackState }) {
      
   return (
     <div className='transactionsContainer'>
+    
+      <h2 className='transactionsTitle'>YOUR TRANSACTIONS</h2>
+      
         {data.length > 0 ? data.map(el => {
         return <div  key={el.id}>
             <ul>

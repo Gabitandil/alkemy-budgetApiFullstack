@@ -1,4 +1,5 @@
-
+@use '../base/variables' as v;
+@use '../base/mixins.scss' as m;
 .title{
     margin:0px ;
     text-align: left;
@@ -7,3 +8,29 @@
 h2{
     margin:0
 }
+
+.homeTransactions{
+    @include m.telefono{
+        position: relative;
+        left: 50px;
+        display: block;
+        width: 300px;
+        justify-content: center;
+        top:100px;
+        border: solid;
+        border-radius: 20px;
+    }
+
+    @include m.desktop{
+       border-width: 5px;
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        font-size: 30px;
+       
+        width: 95%;
+        height: 80px;
+       
+    }
+  
+}
+

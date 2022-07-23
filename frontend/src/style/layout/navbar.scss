@@ -1,0 +1,20 @@
+.navContainer{
+    
+    position: absolute;
+    top: 90px;
+    left: 150px;
+}
+.navOptions{
+    background-color:  	 	 	rgb(220,220,220);
+    gap: 100px;
+}
+
+.selectedNavButton{
+    color: red;
+}
+
+.navButton{
+    &:hover{
+        color: red;
+    }
+}
