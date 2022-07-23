@@ -21,7 +21,6 @@
     @include m.telefono{
         display: flex;
         flex-direction: column;
-        
     }
     @include m.desktopxxl{
         display: flex;
@@ -29,10 +28,8 @@
         gap: 55px;
         position: relative;
         top: 20%;
-        
         justify-content: center;
     }
-    
 }
 .modal > input{
     height: 30px;

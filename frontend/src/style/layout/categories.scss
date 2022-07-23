@@ -12,6 +12,7 @@
         border-radius: 5px;
         padding: 5px;
         filter: brightness(0.5);
+
         &:hover {
             cursor: pointer;
         }
@@ -22,6 +23,7 @@
         font-size: 20px;
     }
 }
+
 .categoriesContainer {
     @include m.telefono {
         position: relative;
@@ -46,25 +48,27 @@
         border-radius: 5px;
         padding: 5px;
     }
+
     @include m.desktop {
         padding: 11px;
         font-size: 20px;
+
         &:hover {
             cursor: pointer;
             filter: brightness(0.6);
         }
     }
-
 }
+
 .expense-option {
     @include m.telefono {
         background-color: #800000;
-
         color: white;
         border: solid;
         border-color: #800000;
         border-radius: 10px;
     }
+
     @include m.desktop {}
 
     &:hover {
@@ -72,6 +76,7 @@
         filter: brightness(0.6);
     }
 }
+
 .income-option {
     @include m.telefono {
         background-color: #006400;
@@ -82,6 +87,7 @@
         border-radius: 10px;
 
     }
+
     @include m.desktop {}
 
     &:hover {
@@ -89,6 +95,7 @@
         filter: brightness(0.6);
     }
 }
+
 .tp-container {
     @include m.telefono {
         display: flex;
@@ -97,22 +104,24 @@
         left: 270px;
         bottom: 105px;
         gap: 5px;
-
         flex-direction: column;
-
         border-radius: 20px;
     }
+
     @include m.tablet {
         left: 270px;
         bottom: 105px;
     }
+
     @include m.desktop {
         left: 600px;
         bottom: 115px;
     }
+
     @include m.desktopxl {
         left: 820px;
     }
+
     @include m.desktopxxl {
 
         width: 80px;
@@ -123,16 +132,17 @@
 
 .income-selected {
     background-color: #006400;
-
     color: white;
     border: solid;
     border-color: #006400;
     border-radius: 10px;
     filter: brightness(0.5);
+
     &:hover {
         cursor: pointer;
     }
 }
+
 .expense-selected {
     background-color: #800000;
     color: white;
@@ -140,6 +150,7 @@
     border-color: #800000;
     border-radius: 10px;
     filter: brightness(0.5);
+
     &:hover {
         cursor: pointer;
     }

@@ -12,9 +12,7 @@ function CreateTransaction({ transactions, setTrackState, trackState }) {
     date: "",
     category: ""
   })
-
   function transactionCreate(input, e) {
-  
     if (!input.concept) {
       toast.warn('concept is empty', {
         position: "top-center"
@@ -70,15 +68,8 @@ function CreateTransaction({ transactions, setTrackState, trackState }) {
         date: "",
         category: ""
       })
-
-      
-
     }
-
-
-
   }
-
   function handleInputCreate(e) {
     setInput({
       ...input,
@@ -87,17 +78,14 @@ function CreateTransaction({ transactions, setTrackState, trackState }) {
     })
 
   }
-
   function handleSelect(e) {
     setInput({
       ...input,
       [e.target.name]: e.target.value
     })
   }
- 
   return (
     <div className='createContainer'>
-
       <p>add your transactions here  </p>
       <form className='formContainer'>
         <input onChange={(e) => handleInputCreate(e)} value={input.concept} type="text" placeholder='concept ' name='concept' />
@@ -117,7 +105,6 @@ function CreateTransaction({ transactions, setTrackState, trackState }) {
         </select>
       </form>
       <button onClick={(e) => { transactionCreate(input, e); toast.clearWaitingQueue();  }} className='createButton'>create transaction</button>
-
     </div>
   )
 }
