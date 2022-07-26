@@ -21,6 +21,11 @@ module.exports = (sequelize) => {
         },
         category:{
             type: DataTypes.STRING
+        },
+        userId:{
+            type: DataTypes.INTEGER,
+            autoIncrement: false,
+            unique: false
         }
        
        

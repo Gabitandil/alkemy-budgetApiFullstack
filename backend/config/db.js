@@ -12,6 +12,9 @@ const UserModel = require('../models/Users')
 const Transaction = TransactionModel(sequelize, Sequelize);
 const User = UserModel(sequelize, Sequelize)
 
+Transaction.belongsTo(User, {foreignKey: "userId"})
+User.hasMany(Transaction,  {foreignKey: "userId"} )
+
 sequelize.sync({force:false}).then(()=> {
   console.log('tables sync' )
 

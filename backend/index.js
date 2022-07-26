@@ -5,6 +5,9 @@ const apiRouter = require('./api')
 //Config DB
 require('./config/db')
 
+
+
+
 // Cors
 app.use(cors())
 
