@@ -34,9 +34,10 @@ Home
 <h2>
 La pantalla de inicio deberá mostrar el balance actual, es decir, el resultante de los
 ingresos y egresos de dinero cargados, y un listado de los últimos 10 registrados.
+
 </h2>
 
-![home1](https://user-images.githubusercontent.com/70545509/180583375-de02225a-1b71-4c93-b166-8b5c14385407.png)
+![home2](https://user-images.githubusercontent.com/70545509/181370018-c95574a9-4ab6-4804-8d5b-61d7d97b4375.png)
 
 <h1>
 ABM de operaciones (ingresos y egresos)
@@ -54,9 +55,11 @@ previamente. No debe ser posible modificar el tipo de operación (ingreso o
 egreso) una vez creada.
 </h2>
 
-![transactions 1](https://user-images.githubusercontent.com/70545509/180583378-e61a2288-dc27-45bb-a43c-a9efb5984206.png)
+
+![transactions 2](https://user-images.githubusercontent.com/70545509/181370862-5b3f69f5-75bf-4905-809e-ffbe4fbdd6fd.png)
 ![editTransaction](https://user-images.githubusercontent.com/70545509/180583997-bdfc19f7-1707-4446-bff0-f9b2e076598d.png)
-![deletedTransactions](https://user-images.githubusercontent.com/70545509/180584601-50b26f87-893a-4cec-a25e-ad34dd076956.png)
+![deletedTransactions2](https://user-images.githubusercontent.com/70545509/181371012-02a874cc-dbb8-4e61-8208-d7ed9ddf2ff9.png)
+
 
 
 
@@ -64,6 +67,7 @@ egreso) una vez creada.
 <h1>
 Bonus
 </h1>
+
 <h1>
 Categorías de operaciones
 </h1>
@@ -73,7 +77,7 @@ ejemplo, una categoría “comida” para categorizar egresos. Adicionalmente, a
 posibilidad de listar operaciones por categoría.
 </h2>
 
-![filterTransactions](https://user-images.githubusercontent.com/70545509/180584133-8eccbce4-b144-44bb-b9f5-9357f9bf62b6.png)
+![filtertransactions2](https://user-images.githubusercontent.com/70545509/181371048-e1f1cce0-c692-46ac-a4e3-1f6106b74347.png)
 
 <h1>
 Autenticación de usuarios
@@ -83,7 +87,12 @@ Agregar un formulario de registro y login para permitir identificar al usuario q
 aplicación, y vincular las operaciones registradas al usuario autenticado en el sistema,
 tanto para el listado y creación de nuevos registros. Los datos indispensables para permitir
 el ingreso deben ser un email y contraseña, pudiendo agregar los que se deseen.
+
 </h2>
+
+![register](https://user-images.githubusercontent.com/70545509/181371704-0c14dd26-961d-4b64-81c0-a72747c8d7a3.png)
+![login](https://user-images.githubusercontent.com/70545509/181371749-9715572c-ad5f-4c9f-aff9-cefb2a0cb310.png)
+
 <h1>
 Criterios a Evaluar
 </h1>
@@ -100,7 +109,9 @@ de Frontend
 
 
 
-![homeResponsive](https://user-images.githubusercontent.com/70545509/180584297-61c9ee41-da77-40c7-a19e-d42e6402b473.png)![transactionsResponsive](https://user-images.githubusercontent.com/70545509/180584298-89c6f867-ca2a-483e-8417-cd8ac946e641.png)
+![homeResponsive](https://user-images.githubusercontent.com/70545509/180584297-61c9ee41-da77-40c7-a19e-d42e6402b473.png)
+![transactionsResponsive](https://user-images.githubusercontent.com/70545509/180584298-89c6f867-ca2a-483e-8417-cd8ac946e641.png)
+![registerResponsive](https://user-images.githubusercontent.com/70545509/181371868-3b993cde-eb10-4e98-aa91-5f560701a046.png)
 
 
 
