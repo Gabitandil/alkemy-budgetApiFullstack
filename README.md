@@ -107,10 +107,8 @@ de Frontend
 </h2>
 
 
-
-
-![homeResponsive](https://user-images.githubusercontent.com/70545509/180584297-61c9ee41-da77-40c7-a19e-d42e6402b473.png)
-![transactionsResponsive](https://user-images.githubusercontent.com/70545509/180584298-89c6f867-ca2a-483e-8417-cd8ac946e641.png)
+![home2responsive](https://user-images.githubusercontent.com/70545509/181372947-ae202658-7433-4314-89b4-5329812a8315.png)
+![transactionsResponsive2](https://user-images.githubusercontent.com/70545509/181372970-d7c21b3b-be08-4a06-a705-3537370dc010.png)
 ![registerResponsive](https://user-images.githubusercontent.com/70545509/181371868-3b993cde-eb10-4e98-aa91-5f560701a046.png)
 
 
