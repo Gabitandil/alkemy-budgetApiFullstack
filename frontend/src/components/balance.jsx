@@ -5,12 +5,16 @@ function Balance({ transactions }) {
   const getAmounts = transactions.map(transaction => transaction.amount)
   const total = getAmounts.reduce((acc, item) => (acc += item), 0)
   const limitTransactions = transactions.slice(-10)
+  // let userName = transactions? transactions[0].user.email : null
+  let userName = transactions.length >0? transactions[0].user.username : ""
+  
   return (
     <div >
-      <h1 style={{ margin: 0 }} >Your Balance is  </h1  >
+      <h1 style={{ margin: 0 }} >{` ${userName}  Your Balance is `  }</h1  >
       {total ? <h1 className={total < 0 ? "expense" : "income"}>{`$${total}`}</h1> : <h1>$0</h1>}
       {limitTransactions.length > 0 ? limitTransactions.map(transaction => {
         return <div key={transaction.id}>
+        
           <li className='homeTransactions'>
             <h2 className='category'>{`{${transaction.category}}`}</h2>  <h2>{transaction.concept}</h2>  <h2 >{transaction.type_transaction}</h2>  <h2 className={transaction.amount < 0 ? "expense" : "income"}>{`$${transaction.amount}`}</h2>
           </li>

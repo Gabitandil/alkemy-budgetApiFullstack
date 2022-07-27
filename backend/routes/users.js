@@ -8,20 +8,22 @@ const jwt = require('jwt-simple')
 
 router.post('/register',  async(req, res)=> {
     let {
-        email,
+        username,
         password
     } = req.body
     try {
-        let users = await User.findOne({where : {email: req.body.email}})
+        let users = await User.findOne({where : {username: req.body.username}})
+        if(username.length === 0) return res.status(400).json({msg: "username is empty"})
+        if(password.length === 0) return res.status(400).json({msg: "password is empty"})
         if(!users){
             let createUser = await User.create({
-                email: email,
+                username: username,
                 password: password
             })
             return res.json(createUser)
         }
          else{
-             return res.json({error : "email already exist"})
+             return res.status(400).json({msg : "username already used"})
          }
     } catch (error) {
         console.log(error.message)
@@ -29,19 +31,24 @@ router.post('/register',  async(req, res)=> {
 })
 
 router.post('/login', async (req,res) => {
-    const user = await User.findOne({where : {email: req.body.email}})
-    if(user){
-       if(user.password === req.body.password){
-           await user.update({ token : createToken(user) }, {where : {token: user.token}})
-           return res.json(user)
-       }
-       else{
-        return res.status(400).json({msg: "wrong password"})
-       }
-    }
-    else{
-        return res.status(400).json({msg :"user not registered"})
-    }
+    if(!req.body.username) return res.status(400).json({msg: "username is empty"})
+   
+        
+        const user = await User.findOne({where : {username: req.body.username}})
+        if(user){
+           if(user.password === req.body.password){
+               await user.update({ token : createToken(user) }, {where : {token: user.token}})
+               return res.json(user)
+           }
+           else{
+            return res.status(400).json({msg: "wrong password"})
+           }
+        }
+        else{
+            return res.status(400).json({msg :"user not registered"})
+        }
+
+    
 })
 
 function createToken(user){
@@ -51,9 +58,5 @@ function createToken(user){
  return jwt.encode(payload, "SECRET WORD")
 
 }
-router.get('/test', async (req, res )=> {
-    let prueba = await User.findAll()
-    return res.json(prueba)
-})
 
 module.exports = router;

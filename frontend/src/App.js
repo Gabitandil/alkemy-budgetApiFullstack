@@ -10,27 +10,39 @@ import CreateTransaction from './components/createTransaction';
 import Transactions from './components/transactions';
 import Categories from './components/categories'
 import NavBar from './components/navBar'
+import Register from './components/register'
+import Login from './components/login'
 
 function App() {
 
   const [transactions, setTransactions] = useState([])
   const [data, setData] = useState([])
   const [trackState, setTrackState] = useState(0)
-
+  const token = localStorage.getItem("token")
   function getValues() {
-    axiosClient.get().then(res => {
+    axiosClient.get("/account/transactions",{
+      headers: {
+        token : `Bearer ${localStorage.getItem("token")}`
+      }
+    }).then(res => {
 
       setTransactions(res.data)
       setData(res.data)
       setTrackState(trackState)
+    }).catch(err => {
+      console.log(err.response.data.msg)
+      
     })
+
+ 
   }
 
   useEffect(() => {
+   token?
     setTimeout(() => {
       getValues()
 
-    }, 200);
+    }, 200) : console.log('ea')
 
   }, [trackState])
 
@@ -41,6 +53,8 @@ function App() {
         <ToastContainer limit={1} autoClose={2000} />
 
         <Routes>
+          <Route exact path ="/" element = {<Login/>} />
+          <Route exact path ="/register" element = {<Register/>} />
           <Route exact path='/home' element={<><Balance transactions={transactions} /> <NavBar /> </>} />
           <Route exact path='/transactions'
             element={<><Transactions transactions={transactions} data={data} trackState={trackState} setTrackState={setTrackState} />

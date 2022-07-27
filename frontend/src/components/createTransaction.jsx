@@ -56,7 +56,12 @@ function CreateTransaction({ transactions, setTrackState, trackState }) {
         type_transaction: input.type_transaction,
         date: input.date,
         category: input.category
-      })
+      }, 
+      {
+        headers : {
+          token :  `Bearer ${localStorage.getItem("token")}`
+        }
+      }) 
       toast.success('transaction created', {
         position: "top-center"
       })

@@ -5,11 +5,9 @@
     margin: 0px;
     text-align: left;
 }
-
 h2 {
     margin: 0
 }
-
 .homeTransactions {
     @include m.telefono {
         position: relative;
@@ -21,15 +19,12 @@ h2 {
         border: solid;
         border-radius: 20px;
     }
-
     @include m.desktop {
         border-width: 5px;
         display: grid;
         grid-template-columns: repeat(4, 1fr);
         font-size: 30px;
-
         width: 95%;
         height: 80px;
-
     }
 }
