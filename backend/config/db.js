@@ -1,7 +1,7 @@
 require('dotenv').config({path:"./.env"})
 const  Sequelize = require('sequelize');
 const sequelize = new Sequelize(`postgres://${process.env.DB_USER}:${process.env.DB_PASSWORD}@${process.env.HOST}/budget_api`)
-// const sequelize = new Sequelize('postgres://postgres:13320972@localhost/budget_api')
+
 
 
 
